@@ -132,7 +132,7 @@ L111L111111L111L
 L11L11111111L11L
 L1L1111111111L1L
 LL111111111111LL
-LLLLLLLLLLLLLLLL`]
+LLLLLLLLLLLLLLLL`],
   [l, bitmap `
 ................
 ..0000.......000
@@ -149,7 +149,7 @@ LLLLLLLLLLLLLLLL`]
 ..0LLLLLLL0..0..
 ..000000000..000
 ................
-................`]
+................`],
 );
 
 setSolids([player, wall, keyBox, box]);
@@ -181,6 +181,27 @@ wwww.w.w.w
 w.pw.w.w.w
 w.ww.w.w.w
 w....w...w`,
+  map`
+.kwwwwwwwwwww.w.w...
+.www........w.w.wwww
+.j.w......w.w.ww....
+..w..wwwwww.w.w.wwww
+w.w.w.......w.w.w...
+..w.w.wwwwwwwwwwwwww
+..w.w.w.....w...w.w.
+..w.w.w..ww.w..www..
+..w.w.w.wgw.wwww.www
+..w.w.w...w.w....w..
+jww.w.wwwww.w.w..w..
+.w..w.......w.wwjwww
+jwbwwwwwwwwww.w.....
+.......w......w.wwww
+wwwww..wjwwwwww.....
+ddddw..j.w....wwwww.
+d.ddw..w......w.....
+wjwwwwwwwwwwwww.wwww
+.............j....p.
+.............j......`,
 ]
 
 setMap(levels[level])
