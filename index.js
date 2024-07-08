@@ -1,5 +1,6 @@
+
 /* 
-@title: maze-trixs
+@title: maze_game_starter
 @author: Shayan
 @tags: []
 @addedOn: 2023-08-08
@@ -9,7 +10,7 @@ const player = "p";
 const wall = "w";
 const goal = "g";
 const key = "k";
-  const keyBox = "b";
+const keyBox = "b";
 
 setLegend(
 	[ player, bitmap`
@@ -64,39 +65,39 @@ setLegend(
 ................
 ................`],
   [keyBox, bitmap`
-CCCCCCCCCCCCCCCC
-CCCCCCCCCCCCCCCC
-CC6CC6C66C6CCC6C
-CC6C6CC6CCC666CC
-CC66CCC66CCC6CCC
-CC6C6CC6CCCC6CCC
-CC6CC6C66CCC6CCC
-CCCCCCCCCCCCCCCC
-CCCCCCC66CCCCCCC
-CCCCCCC66CCCCCCC
-CCCCCCC66CCCCCCC
-CCCCCCC66CCCCCCC
-CCCCCCC66CCCCCCC
-CCCCCCCCCCCCCCCC
-CCCCCCCCCCCCCCCC
-CCCCCCCCCCCCCCCC`],
+..1..1..1..1..1.
+1111111111111111
+..1..1LLLL.1..1.
+..1..LL.1LL1..1.
+11111L1111L11111
+..1..L..1.L1..1.
+..1LLLLLLLLLL.1.
+111LLLLLLLLLL111
+..1LLLL22LLLL.1.
+..1LLL2222LLL.1.
+111LLL2222LLL111
+..1LLLL22LLLL.1.
+..1LLLL22LLLL.1.
+111LLLLLLLLLL111
+..1..1..1..1..1.
+..1..1..1..1..1.`],
   [goal, bitmap`
-....44444444....
-...4999999994...
-..499333333994..
-.49336666663394.
-4993666666663994
-4936666666666394
-4936666666666394
-4936666666666394
-4936666666666394
-4936666666666394
-4936666666666394
-4993666666663994
-.49336666663394.
-..499333333994..
-...4999999994...
-....44444444....`]
+....CCCCCCCC....
+...CCCCCCCCCC...
+..CCCCCCCCCCCC..
+.CCCCCCCCCCCCCC.
+CCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCC
+.CCCCCCCCCCCCCC.
+..CCCCCCCCCCCC..
+...CCCCCCCCCC...
+....CCCCCCCC....`]
 );
 
 setSolids([ player, wall ]); 
@@ -141,7 +142,7 @@ onInput("d", () => {
 // these get run after every input
 afterInput(() => {
     const goalsCovered = tilesWith(player, goal); // tiles that both contain the player and goal
-
+    const keyCollected = tilesWith(player, key);
     // if at least one goal is overlapping with a player, proceed to the next level
     if (goalsCovered.length >= 1) {
         // increase the current level number
@@ -151,7 +152,11 @@ afterInput(() => {
         if (level < levels.length) {
             setMap(levels[level]);
         } else {
-            addText("you win!", { x: 6, y: 6, color: color`9` });
+            addText("You Win!", { x: 6, y: 6, color: color`9` });
         }
     }
+  if (keyCollected.length >= 1) {
+    getFirst(key).remove();
+    getFirst(keyBox).remove();
+  }
 });
